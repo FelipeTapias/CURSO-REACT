@@ -1,0 +1,5 @@
+@baseurl = https://api.giphy.com/v1/gifs/random?tag=&rating=g
+@apikey = 7kmLwC9WGH8lRpLAnKbZPUL1BmPqbESC
+
+GET {{baseurl}}&api_key={{apikey}} HTTP/1.1
+content-type: application/json
