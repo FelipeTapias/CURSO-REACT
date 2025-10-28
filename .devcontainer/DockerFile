@@ -1,0 +1,17 @@
+# Imagen base exacta de Node 22.12.0 (Debian Bookworm)
+FROM node:22.12.0-bookworm
+
+# Instalar herramientas útiles
+RUN apt-get update && apt-get install -y git curl bash zsh && apt-get clean
+
+# Crear usuario node si no existe
+RUN usermod -aG sudo node
+
+# Añadir herramientas que ayudan al frontend
+RUN npm install -g vite@latest npm-check-updates serve
+
+# Carpeta de trabajo por defecto
+WORKDIR /workspaces/CursoReact
+
+# Cambiar al usuario node (mejor seguridad)
+USER node
